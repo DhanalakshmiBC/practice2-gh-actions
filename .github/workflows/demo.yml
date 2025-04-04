@@ -42,6 +42,10 @@ jobs:
     steps:
       - name: download artifact
         uses: actions/download-artifact@v4
+        with:
+          name: dist-files
+      - name: output the files
+        run: ls 
       - name: Deploy
         run: echo "deploying to prod"
        
