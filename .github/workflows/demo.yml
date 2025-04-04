@@ -44,6 +44,8 @@ jobs:
           name: dist-files
       - name: output the files
         run: ls 
+      - name: untar the files
+        run: untar -xvf artifact.tar .
       - name: Deploy
         run: echo "deploying to prod"
        
