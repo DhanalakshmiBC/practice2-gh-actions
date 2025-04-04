@@ -1,0 +1,37 @@
+name: practice-2
+on: 
+  push:
+    branches:
+      - master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: setup node 
+        uses: actions/setup-node@v3
+      - name: install dependencies
+        uses: npm ci
+      - name: run tests
+        run: npm test
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: setup node 
+        uses: actions/setup-node@v3
+      - name: install dependencies
+        uses: npm ci
+      - name: build app
+        run: npm run build
+  
+    
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: echo "deploying to prod"
+       
