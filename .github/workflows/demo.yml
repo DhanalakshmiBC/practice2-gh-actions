@@ -32,7 +32,9 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with: 
           name: dist-files
-          path: dist
+          path: |
+             dist
+             package.json
     
   deploy:
     needs: build
